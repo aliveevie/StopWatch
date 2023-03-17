@@ -114,6 +114,10 @@ function App() {
     }
   }
 
+  const audio = new Audio("https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav")
+  if(time.minutes < 1){
+    audio.play()
+  }
 
   return (
     <div id="container" >
