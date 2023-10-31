@@ -1,8 +1,8 @@
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleUp, faBarChart } from '@fortawesome/free-regular-svg-icons';
+import { faArrowAltCircleUp } from '@fortawesome/free-regular-svg-icons';
 import { faArrowAltCircleDown } from '@fortawesome/free-regular-svg-icons';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { faCirclePlay } from '@fortawesome/free-regular-svg-icons';
 import { faPauseCircle } from '@fortawesome/free-regular-svg-icons';
 import { faRecycle } from '@fortawesome/free-solid-svg-icons';
@@ -12,7 +12,7 @@ function App() {
   const [session, setSession] = useState(25)
   
   const [time, setTime] = useState({minutes: 25, seconds: 0})
-  const [running, setRunning] = useState(false)
+  const [running, setRunning] = useState(false);
   
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
     }
     return () => clearInterval(intervalId)
 
-  }, [running, time])
+  }, [running, time, value])
 
   const handleButtonClick = () => {
     setRunning(!running)
@@ -43,7 +43,7 @@ function App() {
 
   function handleIncrease(){
    
-    if(value == 60){
+    if(value === 60){
       setValue(60)
       
     }else if(value < 1){
@@ -55,7 +55,7 @@ function App() {
 
   function handleDecrease(){
     
-    if(value == 1){
+    if(value === 1){
       setValue(1)
       
     }else if(value > 60){
@@ -68,7 +68,7 @@ function App() {
 
   function handleIncreaseSes(){
    
-    if(session == 60){
+    if(session === 60){
       setSession(60)
       
     }else if(session < 1){
@@ -81,7 +81,7 @@ function App() {
 
 
   function handleDecreaseSe(){
-    if(session == 1){
+    if(session === 1){
       setSession(1)
     }else if(session > 59){
       setSession(session - 1)
@@ -115,8 +115,8 @@ function App() {
   }
 
   const audio = new Audio("https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav")
-  if(time.minutes < 1){
-    audio.play()
+  if (time.minutes < 1) {
+    audio.play();
   }
 
   return (
@@ -168,7 +168,7 @@ function App() {
           </button>
       </div>
      <div className='author' >Design and Coded By <br />
-      <a href="#" >Ibrahim Abdulkarim</a>
+      <a href="https://ibadulkarim.co/" >Ibrahim Abdulkarim</a>
      </div>
     </div>
   
